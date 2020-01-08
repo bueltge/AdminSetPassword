@@ -7,10 +7,10 @@ jQuery(document).ready(function($) {
 	$('<div class=\"adminsetpassword\" style=\"position:absolute;margin:40px 0 0 0;width:100%;\"><input type=\"password\" id=\"new_passw\" class=\"input-sm\" /><input type=\"submit\" value=\"".plugin_lang_get(
         'plugin_AdminSetPassword_change_password'
     )."\" class=\"btn btn-primary btn-white btn-round\" id=\"submit_newpassw\" style=\"margin-right:3px;\" /></div>').prependTo(frm);
-	
+
 	frm.children('#submit_newpassw').on('click', function(){
-	    var sel = $('#new_passw');
-	    
+		var sel = $('#new_passw');
+	
 		if(sel.val().length > 5){
 		$.post(
 			\"plugins/AdminSetPassword/pages/ajax.php\", 
@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
 		});
 		} else {
 			alert('".plugin_lang_get('plugin_AdminSetPassword_password_length')."');		
-		}		
+		}
 
 		return false;
 	});

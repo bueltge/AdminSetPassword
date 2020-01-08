@@ -16,7 +16,7 @@ Class AdminSetPasswordPlugin extends MantisPlugin
     {
         $this->name = 'Admin Set Password';
         $this->description = 'Displays an input field and button on "manage_user_edit_page" to change a users password directly.';
-        $this->version = '1.0.0';
+        $this->version = '1.1.0';
         $this->requires = ['MantisCore' => '2.0.0'];
         $this->url = 'https://github.com/bueltge/AdminSetPassword';
     }
@@ -41,24 +41,23 @@ Class AdminSetPasswordPlugin extends MantisPlugin
         $this->current_page = basename($_SERVER['PHP_SELF']);
     }
 
+    /**
+     * @return array
+     */
     public function hooks()
     {
         return [
-            'EVENT_LAYOUT_CONTENT_BEGIN' => 'addPageContent'
+            'EVENT_LAYOUT_RESOURCES' => 'enqueueScript'
         ];
     }
 
     /**
-     * Include file on the user edit page that include fields vie javascript.
+     * Enqueue script to add html inside the back end.
      *
      * @return string
      */
-    public function addPageContent()
+    public function enqueueScript()
     {
-        if (!in_array($this->current_page, $this->cmv_pages, true)) {
-            return '';
-        }
-        include('pages/plugin_myview.php');
-        return $p_javascript;
+        return '<script src="'.plugin_file('js/setpassword.js').'"></script>';
     }
 }
