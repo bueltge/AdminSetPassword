@@ -14,6 +14,9 @@ No configuration options, no config page. And nothing to patch in your mantis in
 ## Screenshot
 ![AdminSetPassword Field](./assets/screenshot.png)
 
+## Support
+File a bug report or ask questions on [GitHub](http://github.com/mantisbt-plugins/AdminSetPassword/issues).
+
 ## Changelog
 ### 1.0.0
 * Ready for MantisBT Version 2.* (older version leave inside his separate branch)
