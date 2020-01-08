@@ -48,7 +48,6 @@ Class AdminSetPasswordPlugin extends MantisPlugin
     {
         return [
             'EVENT_LAYOUT_RESOURCES' => 'enqueueScript',
-            'EVENT_LAYOUT_CONTENT_BEGIN' => 'printTranslations',
         ];
     }
 
@@ -59,7 +58,10 @@ Class AdminSetPasswordPlugin extends MantisPlugin
      */
     public function enqueueScript()
     {
-        return '<script src="'.plugin_file('js/setpassword.js').'"></script>';
+        $script = $this->printTranslations();
+        $script .= '<script src="'.plugin_file('js/setpassword.js').'"></script>';
+
+        return $script;
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
-
+$s_plugin_AdminSetPassword_name = 'Admin Set Password';
+$s_plugin_AdminSetPassword_description = 'Ergänzt einen Button und Eingabefeld auf "manage_user_edit_page" zum direkten Setzen eines neuen Passworts.';
 $s_plugin_AdminSetPassword_change_password = 'Passwort ändern';
 $s_plugin_AdminSetPassword_password_length = 'Geben Sie ein Passwort mit mindestens 6 Zeichen ein!';
 $s_plugin_AdminSetPassword_password_success = 'Das neue Passwort wurde erfolgreich gesetzt.';
-
