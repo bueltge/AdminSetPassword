@@ -47,7 +47,8 @@ Class AdminSetPasswordPlugin extends MantisPlugin
     public function hooks()
     {
         return [
-            'EVENT_LAYOUT_RESOURCES' => 'enqueueScript'
+            'EVENT_LAYOUT_RESOURCES' => 'enqueueScript',
+            'EVENT_LAYOUT_CONTENT_BEGIN' => 'printTranslations',
         ];
     }
 
@@ -59,5 +60,21 @@ Class AdminSetPasswordPlugin extends MantisPlugin
     public function enqueueScript()
     {
         return '<script src="'.plugin_file('js/setpassword.js').'"></script>';
+    }
+
+    /**
+     * Print translated strings in JSON object.
+     *
+     * @return string
+     */
+    public function printTranslations()
+    {
+        return '<script id="adminSetPasswordData" type="application/json">'.json_encode(
+                [
+                    'change_password' => plugin_lang_get('change_password'),
+                    'password_length' => plugin_lang_get('password_length'),
+                    'password_success' => plugin_lang_get('password_success'),
+                ]
+            ).'</script>';
     }
 }
